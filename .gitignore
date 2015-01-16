@@ -5,6 +5,5 @@
 # R
 packrat/lib*/
 packrat/src/
-
 # Data
 exif_data.json
