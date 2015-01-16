@@ -3,13 +3,21 @@ camera-stats
 
 ![map.html](https://raw.githubusercontent.com/ryanmjacobs/camera-stats/master/map.html.png)
 
+Getting it
+----------
+First of all, clone the repo and enter it:
+```
+$ git clone https://github.com/ryanmjacobs/camera-stats
+$ cd camera-stats
+```
+
 Dependencies
 ------------
 Go ahead and grab R from your package manager. Typically you can run:
 ```
 $ sudo apt-get install R
 ```
-Then install packrat with the R command `install.packages("packrat")`,
+Then install 'packrat' for R,
 ```
 $ sudo R
 > install.packages("packrat")
