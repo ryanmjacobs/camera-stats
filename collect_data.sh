@@ -50,6 +50,7 @@ exiftool -f -fast -json -recurse -progress\
 
 # Check whether or not we got any data
 if [ ! -s "$output" ]; then
+    rm "$output"
     error "error: couldn't find any geolocation data :("
 fi
 
