@@ -11,20 +11,20 @@ Then install packrat with the R command `install.packages("packrat")`,
 ```
 $ sudo R
 > install.packages("packrat")
-
-* installing *source* package ‘packrat’ ...
-** package ‘packrat’ successfully unpacked and MD5 sums checked
-** R
-** inst
-** preparing package for lazy loading
-** help
-*** installing help indices
-** building package indices
-** testing if installed package can be loaded
-* DONE (packrat)
-
-The downloaded source packages are in
-        ‘/tmp/RtmpGtLOWL/downloaded_packages’
 > quit()
 Save workspace image? [y/n/c]: n
+```
+
+Grab some data!
+---------------
+We're gonna need some data to plot :smile:
+```
+$ ./collect_data.sh /path/to/some/images
+```
+
+Plot the points!
+----------------
+Once we have collected some geolocation data, we can plot them on a map!
+```
+$ ./gen_map.r
 ```
