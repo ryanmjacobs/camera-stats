@@ -1,16 +1,28 @@
 PackratFormat: 1.4
 PackratVersion: 0.4.2.1
 RVersion: 3.1.2
-Repos: CRAN=http://cran.rstudio.com
+Repos: CRAN=http://cran.cnr.Berkeley.edu
+
+Package: foreign
+Source: CRAN
+Version: 0.8-61
+Hash: 0beba5c531f25fc53f4b55b3688ac523
 
 Package: intervals
 Source: CRAN
 Version: 0.15.0
+Hash: 471a431f5920820c77896d2cc7bef2b8
+
+Package: lattice
+Source: CRAN
+Version: 0.20-29
+Hash: 17e9fe582d11197544a5ec817a80b21e
 
 Package: maptools
 Source: CRAN
 Version: 0.8-30
-Requires: sp
+Hash: 103c8ad3262b5bc7280d620ed8302328
+Requires: foreign, lattice, sp
 
 Package: packrat
 Source: CRAN
@@ -20,37 +32,37 @@ Hash: 085f944cec9b56e8a280222b5174c76e
 Package: plotGoogleMaps
 Source: CRAN
 Version: 2.1
-Requires: maptools, raster, rgdal, sp, spacetime
-Hash: e485220c1f8f12c3bc639f791ddc884b
+Requires: lattice, maptools, raster, rgdal, sp, spacetime
 
 Package: raster
 Source: CRAN
 Version: 2.3-12
+Hash: b84f479bf59fd3ed66553827b3f8c497
 Requires: sp
 
 Package: rgdal
 Source: CRAN
 Version: 0.9-1
 Requires: sp
-Hash: 37c635fde819a572a153bb22535ab5f0
 
 Package: sp
 Source: CRAN
 Version: 1.0-17
 Hash: 29bd0f1fc6cba0edf00eafe2b5b8e9d0
+Requires: lattice
 
 Package: spacetime
 Source: CRAN
 Version: 1.1-2
-Requires: intervals, sp, xts, zoo
-Hash: b96604d26891cf9e53ad3464067624cd
+Requires: intervals, lattice, sp, xts, zoo
 
 Package: xts
 Source: CRAN
 Version: 0.9-7
 Requires: zoo
-Hash: be4b6faab98ec342c7aa497a903d7b43
 
 Package: zoo
 Source: CRAN
 Version: 1.7-11
+Hash: a412b124ff249b078d9cd870de913c90
+Requires: lattice
