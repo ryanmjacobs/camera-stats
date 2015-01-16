@@ -7,6 +7,8 @@
 # January 15, 2015
 ################################################################################
 
+output=exif_data.json
+
 # Echo to stderr
 stderr() {
     echo "$@" 1>&2
@@ -37,7 +39,12 @@ fi
 # Collect GPS data
 stderr "Gathering data..."
 exiftool -f -fast -json -recurse -progress\
-         -GPSAltitude -GPSAltitudeRef -GPSLatitude -GPSLongitude\
+         -coordFormat "%.8f"\
+         -GPSAltitude -GPSAltitudeRef -GPSLatitude -GPSLongitude -GPSCoordinates\
          -if 'length($GPSAltitude) && length($GPSAltitudeRef) &&\
               length($GPSLatitude) && length($GPSLongitude)'\
-         "$1" > exif_data.json
+         "$1" > "$output"
+
+# Convert Lat. and Long. to numbers
+sed -i 's/\("GPSLatitude": "\)\([0-9]*\.[0-9]*\) [NE]/\1\2/g' "$output"
+sed -i 's/\("GPSLongitude": "\)\([0-9]*\.[0-9]*\) [SW]/\1-\2/g' "$output"
