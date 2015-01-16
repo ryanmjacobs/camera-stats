@@ -13,6 +13,11 @@ output=exif_data.json
 stderr() {
     echo "$@" 1>&2
 }
+# Echo to stderr and exit
+error() {
+    echo -e "\n$@" 1>&2
+    exit 1
+}
 
 # Show usage if we got the wrong num. of args
 if [ $# -ne 1 ]; then
@@ -25,15 +30,13 @@ fi
 stderr "Checking dependencies..."
 for dep in exiftool tee; do
     if ! type "$dep"; then
-        stderr "error: please install '$dep'"
-        exit 1
+        error "error: please install '$dep'"
     fi
 done
 
 # Check that the user gave us a directory
 if [ ! -d "$1" ]; then
-    stderr "error: '$1' is not a directory"
-    exit 1
+    error "error: '$1' is not a directory"
 fi
 
 # Collect GPS data
@@ -44,6 +47,11 @@ exiftool -f -fast -json -recurse -progress\
          -if 'length($GPSAltitude) && length($GPSAltitudeRef) &&\
               length($GPSLatitude) && length($GPSLongitude)'\
          "$1" > "$output"
+
+# Check whether or not we got any data
+if [ ! -s "$output" ]; then
+    error "error: couldn't find any geolocation data :("
+fi
 
 # Convert Lat. and Long. to numbers
 sed -i 's/\("GPSLatitude": "\)\([0-9]*\.[0-9]*\) [NE]/\1\2/g' "$output"
