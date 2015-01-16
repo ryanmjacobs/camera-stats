@@ -32,6 +32,7 @@ Hash: 085f944cec9b56e8a280222b5174c76e
 Package: plotGoogleMaps
 Source: CRAN
 Version: 2.1
+Hash: e485220c1f8f12c3bc639f791ddc884b
 Requires: lattice, maptools, raster, rgdal, sp, spacetime
 
 Package: raster
@@ -43,6 +44,7 @@ Requires: sp
 Package: rgdal
 Source: CRAN
 Version: 0.9-1
+Hash: 37c635fde819a572a153bb22535ab5f0
 Requires: sp
 
 Package: sp
@@ -54,11 +56,13 @@ Requires: lattice
 Package: spacetime
 Source: CRAN
 Version: 1.1-2
+Hash: b96604d26891cf9e53ad3464067624cd
 Requires: intervals, lattice, sp, xts, zoo
 
 Package: xts
 Source: CRAN
 Version: 0.9-7
+Hash: be4b6faab98ec342c7aa497a903d7b43
 Requires: zoo
 
 Package: zoo
