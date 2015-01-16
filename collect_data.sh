@@ -22,7 +22,7 @@ fi
 # Check for dependencies: exiftool, tee
 stderr "Checking dependencies..."
 for dep in exiftool tee; do
-    if !type "$dep"; then
+    if ! type "$dep"; then
         stderr "error: please install '$dep'"
         exit 1
     fi
