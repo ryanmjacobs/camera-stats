@@ -1,6 +1,8 @@
 camera-stats
 ============
 
+![map.html](https://raw.githubusercontent.com/ryanmjacobs/camera-stats/master/map.html.png)
+
 Dependencies
 ------------
 Go ahead and grab R from your package manager. Typically you can run:

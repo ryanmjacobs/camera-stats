@@ -8,6 +8,6 @@ packrat/src/
 # Data
 exif_data.json
 # Build
-*.png
+Legend*.png
 *.htm
 *.html
