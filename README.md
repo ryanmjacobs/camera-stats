@@ -15,7 +15,7 @@ Dependencies
 ------------
 Go ahead and grab R from your package manager. Typically you can run:
 ```
-$ sudo apt-get install R
+$ sudo apt-get install r-base
 ```
 Then install 'packrat' for R,
 ```
