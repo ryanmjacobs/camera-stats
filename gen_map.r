@@ -1,8 +1,9 @@
 #!/usr/bin/env Rscript
 ################################################################################
-# gen_map.sh
+# gen_map.r
 #
-# Generate a map with the geolocation data plotted.
+# Generate a map using the gathered geolocation data.
+# Before running './gen_map.r', first run './collect_data.sh'.
 #
 # January 15, 2015
 ################################################################################
