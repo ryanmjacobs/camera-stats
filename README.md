@@ -13,9 +13,9 @@ $ cd camera-stats
 
 Dependencies
 ------------
-Go ahead and grab R from your package manager. Typically you can run:
+Go ahead and grab R and GDAL. Typically you can run:
 ```
-$ sudo apt-get install r-base
+$ sudo apt-get install r-base gdal
 ```
 Then install 'packrat' for R,
 ```
