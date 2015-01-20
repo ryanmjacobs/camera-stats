@@ -14,7 +14,7 @@ stderr() {
     echo "$@" 1>&2
 }
 # Echo to stderr and exit
-error() {
+abort() {
     echo -e "\n$@" 1>&2
     exit 1
 }
@@ -30,14 +30,14 @@ fi
 stderr "Checking dependencies..."
 for dep in exiftool tee; do
     if ! type "$dep"; then
-        error "error: please install '$dep'"
+        abort "error: please install '$dep'"
     fi
 done
 
 # Check that the user gave us *existing* directories
 for dir in "$@"; do
     if [ ! -d "$dir" ]; then
-        error "error: '$dir' is not a directory"
+        abort "error: '$dir' is not a directory"
     fi
 done
 
@@ -53,7 +53,7 @@ exiftool -f -fast -json -recurse -progress\
 # Check whether or not we got any data
 if [ ! -s "$output" ]; then
     rm "$output"
-    error "error: couldn't find any geolocation data :("
+    abort "error: couldn't find any geolocation data :("
 fi
 
 # Convert Lat. and Long. to numbers
