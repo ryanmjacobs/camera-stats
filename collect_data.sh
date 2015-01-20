@@ -19,10 +19,10 @@ error() {
     exit 1
 }
 
-# Show usage if we got the wrong num. of args
-if [ $# -ne 1 ]; then
+# Show usage if we got no arguments
+if [ $# -eq 0 ]; then
     stderr "Scapes an input directory for geolocation exif data."
-    stderr "Usage: $0 <directory>"
+    stderr "Usage: $0 [directory...]"
     exit 1
 fi
 
@@ -34,10 +34,12 @@ for dep in exiftool tee; do
     fi
 done
 
-# Check that the user gave us a directory
-if [ ! -d "$1" ]; then
-    error "error: '$1' is not a directory"
-fi
+# Check that the user gave us *existing* directories
+for dir in "$@"; do
+    if [ ! -d "$dir" ]; then
+        error "error: '$dir' is not a directory"
+    fi
+done
 
 # Collect GPS data
 stderr "Gathering data..."
@@ -46,7 +48,7 @@ exiftool -f -fast -json -recurse -progress\
          -GPSAltitude -GPSAltitudeRef -GPSLatitude -GPSLongitude -GPSCoordinates\
          -if 'length($GPSAltitude) && length($GPSAltitudeRef) &&\
               length($GPSLatitude) && length($GPSLongitude)'\
-         "$1" > "$output"
+         "$@" > "$output"
 
 # Check whether or not we got any data
 if [ ! -s "$output" ]; then
