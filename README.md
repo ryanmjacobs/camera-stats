@@ -15,7 +15,7 @@ Dependencies
 ------------
 Go ahead and grab R and GDAL. Typically you can run:
 ```
-$ sudo apt-get install r-base gdal
+$ sudo apt-get install r-base libgdal-dev
 ```
 Then install 'packrat' for R,
 ```
